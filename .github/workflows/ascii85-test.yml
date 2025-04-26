@@ -35,6 +35,4 @@ jobs:
 
       - name: Тестируем программу
         run: |
-          cd ${{ matrix.exercise }}
           ./test.sh
-          cd ..
