@@ -4,7 +4,7 @@ dd if=/dev/random bs=2K count=1 status=none of=random.bin
 
 python3 -c 'import sys
 import base64
-sys.stdout.buffer.write(base64.a85encode(sys.stdin.buffer.read()).decode('ascii'))
+sys.stdout.buffer.write(base64.a85encode(sys.stdin.buffer.read()))
 ' <random.bin >random.a85
 
 ./ascii85.py -e <random.bin >random.a85.test
