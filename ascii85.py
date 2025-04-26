@@ -49,5 +49,8 @@ def decode_ascii85(encoded):
 
 
 
-code = decode_ascii85 if sys.argv[1] == '-d' else encode_ascii85
-sys.stdout.buffer.write(code(sys.stdin.buffer.read()))
+try:
+    code = decode_ascii85 if sys.argv[1] == '-d' else encode_ascii85
+    sys.stdout.buffer.write(code(sys.stdin.buffer.read()))
+except Exception:
+    pass
