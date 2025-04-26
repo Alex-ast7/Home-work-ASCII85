@@ -1,6 +1,6 @@
 import unittest
 import base64
-from ddd import encode_ascii85, decode_ascii85
+from ascii85 import encode_ascii85, decode_ascii85
 
 
 class TestASCII85(unittest.TestCase):
