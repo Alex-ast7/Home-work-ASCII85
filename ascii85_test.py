@@ -7,12 +7,12 @@ class TestASCII85(unittest.TestCase):
     def test_encode_simple_string(self):
         """Тест: Кодирование простой строки"""
         data = b"Hello, World!"
-        expected = base64.a85encode(data).decode('ascii')
+        expected = base64.a85encode(data)
         self.assertEqual(encode_ascii85(data), expected)
 
     def test_decode_simple_string(self):
         """Тест: Декодирование строки <<St. Petersburg State University is the best of all>>"""
-        data = ';fjW7:h=`[EcY]4Eb?LnFCB9&+B<;nG%G]8BlnVCBlbD=BOr;qATMr9De:,#Chs'
+        data = b';fjW7:h=`[EcY]4Eb?LnFCB9&+B<;nG%G]8BlnVCBlbD=BOr;qATMr9De:,#Chs'
         expected = base64.a85decode(data)
         self.assertEqual(decode_ascii85(data), expected)
 
@@ -30,7 +30,7 @@ class TestASCII85(unittest.TestCase):
         ascii85_encoded = encode_ascii85(data)
         ascii85_decoded = decode_ascii85(ascii85_encoded)
 
-        base64_encoded = base64.a85encode(data).decode('ascii')
+        base64_encoded = base64.a85encode(data)
         base64_decoded = base64.a85decode(base64_encoded)
 
         self.assertEqual(ascii85_encoded, base64_encoded)
