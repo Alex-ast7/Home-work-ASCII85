@@ -7,8 +7,8 @@ import base64
 sys.stdout.buffer.write(base64.a85encode(sys.stdin.buffer.read()))
 ' <random.bin >random.a85
 
-./ascii85 -e <random.bin >random.a85.test
-./ascii85 -d <random.a85 >random.bin.test
+./ascii85.py -e <random.bin >random.a85.test
+./ascii85.py -d <random.a85 >random.bin.test
 
 # Тестирование кодера
 if ! cmp -s random.a85 random.a85.test; then
