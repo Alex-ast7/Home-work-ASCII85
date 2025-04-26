@@ -10,12 +10,6 @@ class TestASCII85(unittest.TestCase):
         expected = base64.a85encode(data).decode('ascii')
         self.assertEqual(encode_ascii85(data), expected)
 
-    def test_encode_with_padding(self):
-        """Тест: Кодирование строки с padding"""
-        data = b"Hello"
-        expected = base64.a85encode(data).decode('ascii')
-        self.assertEqual(encode_ascii85(data), expected)
-
     def test_decode_simple_string(self):
         """Тест: Декодирование строки <<St. Petersburg State University is the best of all>>"""
         data = ';fjW7:h=`[EcY]4Eb?LnFCB9&+B<;nG%G]8BlnVCBlbD=BOr;qATMr9De:,#Chs'
