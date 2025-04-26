@@ -1,1 +1,40 @@
-test
+name: ASCII85 Test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  python_test:
+    name: Настройка, сборка и тестирование
+
+    strategy:
+      matrix:
+        os:
+          - ubuntu-24.04
+        python_version:
+          - 3.12
+
+    runs-on: "${{ matrix.os }}"
+
+    steps:
+      - name: Печать окружения. Окружение — это интересно.
+        run: env
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "${{ matrix.python_version }}"
+
+      - name: Берём исходники из Гита
+        uses: actions/checkout@v4
+
+      - name: Тестируем программу
+        run: |
+          cd ${{ matrix.exercise }}
+          ./test.sh
+          cd ..
