@@ -36,3 +36,6 @@ jobs:
       - name: Тестируем программу
         run: |
           ./test.sh
+          
+      - name: Run unit tests
+        run: python3 -m unittest ascii85_test
